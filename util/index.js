@@ -12,7 +12,7 @@ function isAnInteger (d) {
 }
 
 function isInRange (d) {
-  if (d >= 0 && d <= 9) {
+  if (d >= 1 && d <= 9) {
     return true
   } else {
     return false

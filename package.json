@@ -1,16 +1,20 @@
 {
   "name": "sudokuchecker",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A Node.js program to check if a given solution of Sudoku Puzzle is correct or not.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "standard && mocha"
   },
   "keywords": [
     "sudoku"
   ],
   "author": "Saksham Saxena",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sakshamsaxena/sudokuChecker.git"
+  },
   "devDependencies": {
     "mocha": "^5.2.0",
     "standard": "^12.0.1"
