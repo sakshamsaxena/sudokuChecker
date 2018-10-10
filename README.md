@@ -35,7 +35,7 @@ console.log(sudokuChecker(mySolution)) // true
 
 ### sudokuChecker(solution)
 
-* Returns : [<Boolean>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)
+* Returns : `boolean`
 
 `solution` is a 2-D Array representing the Sudoku Puzzle solution with the Array's `[0][0]` index denoting the top-left-most number of the puzzle. Each number must be a valid integer digit in the range [1,9]. Failure to meet the criteria also returns `false`.
 
