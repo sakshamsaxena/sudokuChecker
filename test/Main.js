@@ -21,8 +21,17 @@ suite('Correct solution', function () {
       [3, 4, 5, 2, 8, 6, 1, 7, 9]
     ]
   })
-  test('should pass and return true', function () {
+  test('should pass and return true synchronously', function () {
     assert.strictEqual(sudokuChecker(solution), true)
+  })
+  test('should pass and return true asynchronously', function () {
+    sudokuChecker(solution, function (err, result) {
+      if (err) {
+        assert.fail(result, true, err)
+      } else {
+        assert.strictEqual(result, true)
+      }
+    })
   })
 })
 
@@ -41,7 +50,16 @@ suite('Incorrect solution', function () {
       [3, 4, 5, 2, 8, 6, 1, 9, 7]
     ]
   })
-  test('should fail and return false', function () {
+  test('should fail and return false synchronously', function () {
     assert.strictEqual(sudokuChecker(solution), false)
+  })
+  test('should fail and return false asynchronously', function () {
+    sudokuChecker(solution, function (err, result) {
+      if (err) {
+        assert.fail(result, false, err)
+      } else {
+        assert.strictEqual(result, false)
+      }
+    })
   })
 })
