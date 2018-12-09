@@ -45,13 +45,13 @@ sudokuchecker(mySolution, function(err, res) {
 
 ### sudokuChecker(solution[, callback])
 
-* Returns : <Boolean>
+* Returns : `Boolean`
 
 * Arguments :
-	* `solution` <Array>
-	* `callback` <Function>
-		* `err` <Error>
-		* `res` <Boolean>
+	* `solution` `Array`
+	* `callback` `Function`
+		* `err` `Error`
+		* `res` `Boolean`
 
 `solution` is a 2-D Array representing the Sudoku Puzzle solution with the Array's `[0][0]` index denoting the top-left-most number of the puzzle. Each number must be a valid integer digit in the range [1,9], otherwise an `err` is returned. Valid input but incorrect solution array results in `false`, otherwise for a perfect solution, `true` is returned.
 
