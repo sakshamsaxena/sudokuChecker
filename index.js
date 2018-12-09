@@ -6,7 +6,9 @@
 
 var util = require('./util')
 
-function sudokuChecker (solution) {
+function sudokuChecker (solution, cb) {
+  // Check if we've a callback passed or not.
+  var hasCallback = (undefined !== cb)
   // Perform all checks in the same go simultaneously for performance.
 
   // Linear Map to check repetition of a number (0th index is dummy).
@@ -17,12 +19,24 @@ function sudokuChecker (solution) {
   for (i = 0; i < 9; i++) {
     for (j = 0; j < 9; j++) {
       digit = solution[i][j]
-      if (util.checkType(digit) &&
-          util.checkRange(digit) &&
-          util.checkValidity(digit, map, i)) {
-        map[digit] += 1
+      if (util.checkType(digit) && util.checkRange(digit)) {
+        if (util.checkValidity(digit, map, i)) {
+          map[digit] += 1
+        } else {
+          if (hasCallback) {
+            cb(null, false)
+            return
+          } else {
+            return false
+          }
+        }
       } else {
-        return false
+        if (hasCallback) {
+          cb(new Error('Invalid Input'), null)
+          return
+        } else {
+          return false
+        }
       }
     }
   }
@@ -38,12 +52,21 @@ function sudokuChecker (solution) {
       if (util.checkValidity(digit, map, j)) {
         map[digit] += 1
       } else {
-        return false
+        if (hasCallback) {
+          cb(null, false)
+          return
+        } else {
+          return false
+        }
       }
     }
   }
 
-  return true
+  if (hasCallback) {
+    cb(null, true)
+  } else {
+    return true
+  }
 }
 
 module.exports = sudokuChecker
