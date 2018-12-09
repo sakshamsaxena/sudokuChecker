@@ -28,15 +28,15 @@ var mySolution = [
 	[3, 4, 5, 2, 8, 6, 1, 7, 9]
 ]
 
-var result
 // Sync
-result = sudokuChecker(mySolution) // true
+console.log(sudokuChecker(mySolution)) // true
+
 // Async
 sudokuchecker(mySolution, function(err, res) {
   if (err) {
     throw err
   } else {
-    result = res // true
+    console.log(res) // true
   }
 })
 ```

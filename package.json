@@ -1,6 +1,6 @@
 {
   "name": "sudokuchecker",
-  "version": "0.1",
+  "version": "0.1.1",
   "description": "A Node.js program to check if a given solution of Sudoku Puzzle is correct or not.",
   "main": "index.js",
   "scripts": {
