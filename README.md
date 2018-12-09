@@ -11,7 +11,7 @@ $ npm install sudokuChecker
 
 ## Usage
 
-Sudoku Checker has (currently) a synchronous API, as demonstrated below.
+Sudoku Checker has both sync and async API, as demonstrated below.
 
 ```javascript
 var sudokuChecker = require('sudokuchecker')
@@ -28,16 +28,32 @@ var mySolution = [
 	[3, 4, 5, 2, 8, 6, 1, 7, 9]
 ]
 
-console.log(sudokuChecker(mySolution)) // true
+var result
+// Sync
+result = sudokuChecker(mySolution) // true
+// Async
+sudokuchecker(mySolution, function(err, res) {
+  if (err) {
+    throw err
+  } else {
+    result = res // true
+  }
+})
 ```
 
 ## API
 
-### sudokuChecker(solution)
+### sudokuChecker(solution[, callback])
 
-* Returns : `boolean`
+* Returns : <Boolean>
 
-`solution` is a 2-D Array representing the Sudoku Puzzle solution with the Array's `[0][0]` index denoting the top-left-most number of the puzzle. Each number must be a valid integer digit in the range [1,9]. Failure to meet the criteria also returns `false`.
+* Arguments :
+	* `solution` <Array>
+	* `callback` <Function>
+		* `err` <Error>
+		* `res` <Boolean>
+
+`solution` is a 2-D Array representing the Sudoku Puzzle solution with the Array's `[0][0]` index denoting the top-left-most number of the puzzle. Each number must be a valid integer digit in the range [1,9], otherwise an `err` is returned. Valid input but incorrect solution array results in `false`, otherwise for a perfect solution, `true` is returned.
 
 ## License
 
